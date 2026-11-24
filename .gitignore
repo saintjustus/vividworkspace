@@ -1,0 +1,19 @@
+# per-machine state and settings
+.ctx/
+CLAUDE.local.md
+.claude/settings.local.json
+
+# media never goes in git
+renders/
+exports/
+*.mov
+*.mp4
+*.webm
+*.gif
+*.exr
+*.png
+*.lottie
+exports/*.json
+
+node_modules/
+.DS_Store

@@ -1,0 +1,28 @@
+{
+  "enabledPlugins": {
+    "figma@claude-plugins-official": true
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          { "type": "command", "command": "node", "args": ["${CLAUDE_PROJECT_DIR}/scripts/ctx.mjs", "sync", "--hook"], "timeout": 30 }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          { "type": "command", "command": "node", "args": ["${CLAUDE_PROJECT_DIR}/scripts/ctx.mjs", "sync", "--hook", "--throttle", "5"], "timeout": 30 }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          { "type": "command", "command": "node", "args": ["${CLAUDE_PROJECT_DIR}/scripts/ctx.mjs", "stop-hook"], "timeout": 20 }
+        ]
+      }
+    ]
+  }
+}
