@@ -1,6 +1,6 @@
 # motion-pipeline
 
-The shared project brain for Isaiah (Agent A) and Ian (Agent B), each working with their own Claude agent on motion graphics in Figma. Masters render on `DEK-559933`. Agent instructions start in `CLAUDE.md`. This README is for the humans.
+The shared project brain for Isaiah (Agent A) and Ian (Agent B), each working with their own Claude agent on motion graphics in Figma. Masters render on `DEK-55993`. Agent instructions start in `CLAUDE.md`. This README is for the humans.
 
 ## How you talk to your agent
 Use **Claude Code**: either the **Code tab** in the Claude desktop app (no terminal needed) or the `claude` CLI. The Chat and Cowork tabs and claude.ai Projects can't run the sync tool, git or hooks, so they won't stay in step.
@@ -17,7 +17,7 @@ Use **Claude Code**: either the **Code tab** in the Claude desktop app (no termi
 1. Install the same three apps, then clone the repo, e.g. `git clone <url> C:\Users\<you>\Projects\motion-pipeline`.
 2. Open it in the Code tab and paste the Agent B prompt from `setup/INIT_PROMPTS.md`.
 
-The agents handle the rest: identity, local folders, the Figma connection and motion check, the render-machine tools on DEK-559933, the self-tests and the first log entries.
+The agents handle the rest: identity, local folders, the Figma connection and motion check, the render-machine tools on DEK-55993, the self-tests and the first log entries.
 
 ## Daily use
 Just work. Hooks pull your peer's updates when a session starts and every 5 minutes while you're prompting. At the end of a turn, they nudge the agent to commit and log. Handy commands:

@@ -21,7 +21,7 @@
 - The human exports the Lottie JSON into the local exports folder (CLAUDE.local.md) and names it as RULES.md says.
 - Quick previews only: the Figma MCP `export_video` tool gives an MP4. It isn't a master.
 
-## Stage 4: Local master render (Phase 2, to be built; runs on DEK-559933)
+## Stage 4: Local master render (Phase 2, to be built; runs on DEK-55993)
 - Remotion with `@remotion/lottie` loads the Lottie and renders ProRes 4444 with alpha:
   `npx remotion render <entry> <comp> out.mov --codec=prores --prores-profile=4444 --pixel-format=yuva444p10le --image-format=png`
 - Until Phase 2 ships, masters come from Figma's own export at the plan's maximum, or the LottieFiles export rendered by hand.

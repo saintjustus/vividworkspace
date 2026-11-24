@@ -9,7 +9,7 @@ Two people, each working with their own Claude agent, design and animate motion 
 | A | Isaiah Mincher | Claude Code (Agent A) | DEK-55993 / Windows 11 Pro (render machine) |
 | B | Ian | Claude Code (Agent B) | DESKTOP-0KMSU9O / Windows 11 Pro |
 
-**Render machine: `DEK-559933` (Windows desktop).** Local master renders (Phase 2), gate V4 (master check) and gate V5 (delivery) run there, done by whichever agent is set up on that machine.
+**Render machine: `DEK-55993` (Windows desktop).** Local master renders (Phase 2), gate V4 (master check) and gate V5 (delivery) run there, done by whichever agent is set up on that machine.
 
 Both agents run in **Claude Code**, either the **Code tab of the Claude desktop app** or the `claude` CLI, opened at the root of this repo. The Chat and Cowork tabs and claude.ai Projects don't load these instructions, hooks or the sync tool.
 

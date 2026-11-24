@@ -6,7 +6,7 @@ Agent A does setup first and pushes the repo to GitHub. Agent B starts only once
 
 ## 1. Confirm where you're running
 - You must be **Claude Code** (the Code tab of the Claude desktop app, or the `claude` CLI) with this repo's root as the project folder. If you can't run shell commands, stop and tell your human to open this folder in the Code tab.
-- Run `hostname`. If it's `DEK-559933`, **this is the render machine**, so step 7 applies to you.
+- Run `hostname`. If it's `DEK-55993`, **this is the render machine**, so step 7 applies to you.
 
 ## 2. Check tools
 - `node --version` must be 18 or newer, and `git --version` must work.
@@ -41,7 +41,7 @@ Agent A does setup first and pushes the repo to GitHub. Agent B starts only once
   - Ask your human to pick any test frame, then run `figma/preflight.js` on it (see `figma/README.md`). The checker is read-only.
   - Report the verdict and `motionApi`. If `motionApi` says `unavailable`, Motion isn't enabled for this account. Record that as a blocker.
 
-## 7. Render machine only (hostname DEK-559933)
+## 7. Render machine only (hostname DEK-55993)
 - Run `ffprobe -version`. If it's missing, ask before running `winget install Gyan.FFmpeg`, then restart the session.
 - Report the free space on the drive that holds the renders folder. 4K ProRes 4444 takes several GB per minute.
 
