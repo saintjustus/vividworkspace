@@ -7,7 +7,7 @@ Two people, each working with their own Claude agent, design and animate motion 
 | Tag | Human | Agent | Machine (hostname) / OS |
 |---|---|---|---|
 | A | Isaiah Mincher | Claude Code (Agent A) | DEK-55993 / Windows 11 Pro (render machine) |
-| B | Ian | Claude Code (Agent B) | _fill in at setup_ |
+| B | Ian | Claude Code (Agent B) | DESKTOP-0KMSU9O / Windows 11 Pro |
 
 **Render machine: `DEK-559933` (Windows desktop).** Local master renders (Phase 2), gate V4 (master check) and gate V5 (delivery) run there, done by whichever agent is set up on that machine.
 
