@@ -1,11 +1,11 @@
 # Local settings for this machine (copy to CLAUDE.local.md, which git ignores)
 
-- I am **Agent A** (human: Isaiah Mincher). On Ian's machine: Agent B (human: Ian).
-- Hostname: DEK-55993
+- I am **Agent B** (human: Ian). On Isaiah's machine: Agent A (human: Isaiah Mincher).
+- Hostname: DESKTOP-0KMSU9O
 - OS: Windows 11
-- Render machine: yes (only DEK-55993 runs gates V4 and V5)
+- Render machine: yes (only DESKTOP-0KMSU9O runs gates V4 and V5; on Isaiah's DEK-55993 this is "no")
 - Lottie exports folder: C:\Users\<you>\MotionPipeline\exports
 - Master renders folder: C:\Users\<you>\MotionPipeline\renders
-- rclone remote: `vivid-drive` (render machine only; signed in as Ian's 2 TB account, `drive.file` scope)
+- rclone remote: `vivid-drive` (render machine only; signed in locally as Ian's 2 TB account with our own OAuth client, `drive.file` scope)
 - ffprobe: on PATH (render machine only)
 - Personal preferences for my agent: (e.g. "explain Figma changes before making them")
