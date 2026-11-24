@@ -25,9 +25,9 @@ Both agents run in **Claude Code**, either the **Code tab of the Claude desktop 
 | Google Drive | Delivery and archive | Google Drive for desktop on the render machine |
 
 ## Links
-- Figma file: _paste link_
+- Figma file: https://www.figma.com/design/1hA1B8DTRGTZugTOwl9fDS/Vivid-Workspace
 - Frame.io project: _paste link_
-- Google Drive delivery folder: _paste link_
+- Google Drive delivery folder: https://drive.google.com/drive/folders/1vhryP9AzQGtJFVd62dUDStuDHS8IzF00
 
 ## Default deliverable spec (change per job in the job table)
 - Master: 3840×2160, project frame rate, ProRes 4444 with alpha (`yuva444p10le`)
