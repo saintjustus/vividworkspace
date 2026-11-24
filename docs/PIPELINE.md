@@ -31,6 +31,10 @@
   `rclone copy "<master>" vivid-drive:VividWorkspace_Delivery/<JOB>/`
   `rclone check "<folder holding the master>" vivid-drive:VividWorkspace_Delivery/<JOB>/ --one-way --include "<master file name>"`
   Always copy, never move: the local master stays. In Phase 2 these steps go into `scripts/deliver.mjs`.
+- Versions: nothing delivered is ever deleted. Each job folder holds only the latest version of each shot. When `v###` passes V5, move the previous version's files into the job's `_archive` folder. The move happens inside Drive, with no re-upload:
+  `rclone move vivid-drive:VividWorkspace_Delivery/<JOB>/ vivid-drive:VividWorkspace_Delivery/<JOB>/_archive/ --include "/<JOB>_S##_<ShortName>_v<previous>_*"`
+  The leading `/` matches only files at the top of the job folder, so `_archive` is never touched. Run it with `--dry-run` first and check the list. Archive only after the new version passes V5, so the current version is never missing.
+- Storage: at each delivery, report Drive usage (`rclone about vivid-drive:` if it works under `drive.file`; otherwise Ian checks drive.google.com/settings/storage). Above 80%, log an `issue` so the humans can choose cold storage for `_archive`.
 - Frame.io: upload to the job's project folder (the V4 API, or the Frame.io MCP once it's set up).
 - Log a `delivery` update entry with file names and links.
 
