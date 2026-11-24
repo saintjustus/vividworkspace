@@ -19,7 +19,7 @@ Agent A does setup first and pushes the repo to GitHub. Agent B starts only once
 
 ## 4. Create CLAUDE.local.md
 - Copy `CLAUDE.local.md.example` to `CLAUDE.local.md`. Fill in your agent letter, hostname, OS and render-machine yes/no.
-- Ask your human where the exports and renders folders should go. Suggest `C:\Users\<user>\MotionPipeline\exports` and `...\renders` (on Windows) and create them. The render machine also needs the Google Drive for desktop delivery folder.
+- Ask your human where the exports and renders folders should go. Suggest `C:\Users\<user>\MotionPipeline\exports` and `...\renders` (on Windows) and create them. The render machine delivers to Drive with rclone (step 7), not Google Drive for desktop.
 - CLAUDE.local.md is git-ignored. Don't commit it.
 
 ## 5. GitHub
@@ -44,6 +44,13 @@ Agent A does setup first and pushes the repo to GitHub. Agent B starts only once
 ## 7. Render machine only (hostname DEK-55993)
 - Run `ffprobe -version`. If it's missing, ask before running `winget install Gyan.FFmpeg`, then restart the session.
 - Report the free space on the drive that holds the renders folder. 4K ProRes 4444 takes several GB per minute.
+- Set up rclone for Drive delivery (docs/PIPELINE.md stage 5). **Ian has to be present (in person or by screen share) for the sign-in.**
+  1. Run `rclone version`. If it's missing, ask before running `winget install Rclone.Rclone`, then restart the session.
+  2. Run `rclone config create vivid-drive drive scope=drive.file`. A browser opens: **Ian signs in to his 2 TB personal account himself.** Never type, read or copy his password or the token. The token stays in rclone's config file (`%APPDATA%\rclone\rclone.conf`). Never copy that file into this repo, the log or chat.
+  3. Run `rclone mkdir vivid-drive:VividWorkspace_Delivery`, then `rclone lsd vivid-drive:` to confirm the folder exists. rclone has to create the folder itself, because under `drive.file` it can't see folders made by hand.
+  4. Ian shares `VividWorkspace_Delivery` with Isaiah as Editor at drive.google.com and gives you the folder link. Fill the "Google Drive delivery folder" link in docs/PROJECT.md (a fact update), commit, push, and log an `update`.
+  5. Test: copy a small text file to `vivid-drive:VividWorkspace_Delivery/_test/` and run `rclone check` on it (expect 0 differences). Ask the humans before deleting the test file.
+  6. If rclone later reports rate limits (403 / `rateLimitExceeded`), tell your human. The fix is our own Google Cloud OAuth client for rclone, published "In production". In "Testing" mode, sign-ins expire after 7 days and delivery quietly stops.
 
 ## 8. Fill your placeholders in docs/PROJECT.md
 SYNC_PROTOCOL rule 2 lets you fill these directly.

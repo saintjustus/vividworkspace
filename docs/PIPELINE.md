@@ -27,7 +27,10 @@
 - Until Phase 2 ships, masters come from Figma's own export at the plan's maximum, or the LottieFiles export rendered by hand.
 
 ## Stage 5: Deliver (Phase 2 automation; manual for now)
-- Google Drive: the master goes into the Drive-synced delivery folder.
+- Google Drive: only after V4 passes. rclone uploads the master as Ian's 2 TB account (`drive.file` scope), so Ian owns the file and it uses his storage, not the render machine owner's:
+  `rclone copy "<master>" vivid-drive:VividWorkspace_Delivery/<JOB>/`
+  `rclone check "<folder holding the master>" vivid-drive:VividWorkspace_Delivery/<JOB>/ --one-way --include "<master file name>"`
+  Always copy, never move: the local master stays. In Phase 2 these steps go into `scripts/deliver.mjs`.
 - Frame.io: upload to the job's project folder (the V4 API, or the Frame.io MCP once it's set up).
 - Log a `delivery` update entry with file names and links.
 
