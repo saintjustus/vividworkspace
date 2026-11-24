@@ -44,9 +44,12 @@ Agent A does setup first and pushes the repo to GitHub. Agent B starts only once
 ## 7. Render machine only (hostname DEK-55993)
 - Run `ffprobe -version`. If it's missing, ask before running `winget install Gyan.FFmpeg`, then restart the session.
 - Report the free space on the drive that holds the renders folder. 4K ProRes 4444 takes several GB per minute.
-- Set up rclone for Drive delivery (docs/PIPELINE.md stage 5). **Ian has to be present (in person or by screen share) for the sign-in.**
+- Set up rclone for Drive delivery (docs/PIPELINE.md stage 5). **Ian signs in himself, either at the render machine or remotely with a token (step 2).**
   1. Run `rclone version`. If it's missing, ask before running `winget install Rclone.Rclone`, then restart the session.
-  2. Run `rclone config create vivid-drive drive scope=drive.file`. A browser opens: **Ian signs in to his 2 TB personal account himself.** Never type, read or copy his password or the token. The token stays in rclone's config file (`%APPDATA%\rclone\rclone.conf`). Never copy that file into this repo, the log or chat.
+  2. Sign in as Ian. Agents never type, read, copy or log Ian's password or the token. Pick one:
+     - **Ian at the render machine:** run `rclone config create vivid-drive drive scope=drive.file`. A browser opens and Ian signs in to his 2 TB personal account himself.
+     - **Remote token (Ian on his own PC):** Isaiah runs `rclone config` in his own terminal: new remote `vivid-drive`, storage `drive`, leave client ID and secret blank, scope `drive.file`, no advanced config, then answer **n** to "Use web browser to automatically authenticate?". rclone prints an `rclone authorize ...` command. Ian runs that exact command on his own PC (with rclone installed), signs in, and rclone prints a token. Ian sends it to Isaiah privately (a direct message, never git, the log, or an agent chat). Isaiah pastes it at the `config_token>` prompt and finishes the config.
+     Either way, the token lives only in rclone's config file on the render machine (`%APPDATA%`, `rclone` folder, `rclone.conf`). Never copy that file into this repo, the log or chat.
   3. Run `rclone mkdir vivid-drive:VividWorkspace_Delivery`, then `rclone lsd vivid-drive:` to confirm the folder exists. rclone has to create the folder itself, because under `drive.file` it can't see folders made by hand.
   4. Ian shares `VividWorkspace_Delivery` with Isaiah as Editor at drive.google.com and gives you the folder link. Fill the "Google Drive delivery folder" link in docs/PROJECT.md (a fact update), commit, push, and log an `update`.
   5. Test: copy a small text file to `vivid-drive:VividWorkspace_Delivery/_test/` and run `rclone check` on it (expect 0 differences). Ask the humans before deleting the test file.
